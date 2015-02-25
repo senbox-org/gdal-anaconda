@@ -12,7 +12,7 @@ As this can be quite painful to get built.
 
 To use this project, install ```cmake``` and 
 ```
-$ export ANACONDA_ROOT=</path/tp=o/anaconda>
+$ export ANACONDA_ROOT=</path/to/anaconda>
 
 $ export PATH=$ANACONDA_ROOT/bin
 
