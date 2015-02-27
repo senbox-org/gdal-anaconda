@@ -10,7 +10,7 @@ if(MSVC)
     URL_MD5 d815838c92a29179298c126effbb1537
     SOURCE_DIR ${PROJ_SB_SRC}
     BINARY_DIR ${PROJ_SB_BUILD_DIR}
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+    INSTALL_DIR ${INSTALL_STAGING}
     CONFIGURE_COMMAND ""
     BUILD_COMMAND nmake /f ${PROJ_SB_SRC}/makefile.vc
     INSTALL_COMMAND ${CMAKE_COMMAND} -E copy  ${CMAKE_SOURCE_DIR}/patches/${proj}/CMakeLists.txt
@@ -24,7 +24,7 @@ if(MSVC)
     BINARY_DIR ${PROJ_SB_BUILD_DIR}
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_CACHE_ARGS
-      -DCMAKE_INSTALL_PREFIX:STRING=${CMAKE_INSTALL_PREFIX}
+      -DCMAKE_INSTALL_PREFIX:STRING=${INSTALL_STAGING}
       -DCMAKE_BUILD_TYPE:STRING=Release
       -DPROJ4_BUILD_DIR:STRING=${PROJ_SB_BUILD_DIR}/src
     DEPENDS ${proj}_build
@@ -43,12 +43,12 @@ else()
     URL "http://download.osgeo.org/proj/proj-4.8.0.tar.gz"
     URL_MD5 d815838c92a29179298c126effbb1537
     BINARY_DIR ${PROJ_SB_BUILD_DIR}
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+    INSTALL_DIR ${INSTALL_STAGING}
     CONFIGURE_COMMAND
       # use 'env' because CTest launcher doesn't perform shell interpretation
       env ${LDLIBVAR}=${CMAKE_INSTALL_PREFIX}/lib
       ${PROJ_SB_BUILD_DIR}/configure 
-      --prefix=${CMAKE_INSTALL_PREFIX}
+      --prefix=${INSTALL_STAGING}
       --enable-static=no
     BUILD_COMMAND $(MAKE)
     INSTALL_COMMAND $(MAKE) install

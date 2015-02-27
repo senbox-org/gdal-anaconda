@@ -1,0 +1,13 @@
+set(DESTDIR @CMAKE_BINARY_DIR@/install)
+
+# Do not install Python bindings
+execute_process(
+  COMMAND make install DESTDIR=${DESTDIR} BINDINGS=
+  WORKING_DIRECTORY @GDAL_SB_BUILD_DIR@
+)
+
+# Install specifically the Python bindings
+execute_process(
+  COMMAND env PYTHONUSERBASE=${DESTDIR} @ANACONDA_ROOT@/bin/python2 setup.py install --user
+  WORKING_DIRECTORY @GDAL_SB_BUILD_DIR@/swig/python
+)

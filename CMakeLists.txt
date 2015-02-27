@@ -18,6 +18,10 @@ include(CTest)
 include(ExternalProject)
 include(CMakeParseArguments)
 
+# Make a directory for staging installation of all components
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/install)
+set(INSTALL_STAGING ${CMAKE_BINARY_DIR}/install)
+
 # Initialize usefull variables to build a superbuild project
 macro(SETUP_SUPERBUILD)
   cmake_parse_arguments(NEW_SB "" "PROJECT" "" ${ARGN})
@@ -37,7 +41,7 @@ else(UNIX)
   else()
     set(LDLIBVAR LD_LIBRARY_PATH)
   endif()
-  set(SB_CMAKE_COMMAND env ${LDLIBVAR}=${CMAKE_INSTALL_PREFIX}/lib  ${CMAKE_COMMAND})
+  set(SB_CMAKE_COMMAND env ${LDLIBVAR}=${INSTALL_STAGING}/lib  ${CMAKE_COMMAND})
 endif()
 
 # Call external projects

@@ -10,5 +10,5 @@ ExternalProject_Add(${proj}
   SOURCE_DIR ${BOOST_SB_SRC}/include/boost
   CONFIGURE_COMMAND ""
   BUILD_COMMAND ""
-  INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_directory ${BOOST_SB_SRC}/include/ ${CMAKE_INSTALL_PREFIX}/include/
+  INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_directory ${BOOST_SB_SRC}/include/ ${INSTALL_STAGING}/include/
 )
