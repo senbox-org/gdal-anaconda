@@ -13,18 +13,13 @@ As this can be quite painful to get built.
 To use this project, install ```cmake``` and 
 ```
 $ export ANACONDA_ROOT=</path/to/anaconda>
-
-$ export PATH=$ANACONDA_ROOT/bin
-
+$ export PATH=$ANACONDA_ROOT/bin:$PATH
 $ git clone https://github.com/senbox-org/gdal-anaconda
-
 $ cd gdal-anaconda
-
 $ mkdir build
-
 $ cd build
-
 $ cmake .. -DCMAKE_INSTALL_PREFIX=$ANACONDA_ROOT
+$ make
 ```
 
-This project is published under GPL-3.0
+This project is licensed under GPL-3.0
